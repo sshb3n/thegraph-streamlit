@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+
+  streamlit:
+    build:
+      context: ../app
+      dockerfile: ../infra/Dockerfile
+    image: thegraph-streamlit
+    hostname: streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - ../app:/app
+    env_file: ../creds.env
